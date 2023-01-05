@@ -129,7 +129,6 @@ renew:
         storage_account_name: "{{ bundle.parameters.tfstate_storage_account_name }}"
         container_name: "{{ bundle.parameters.tfstate_container_name }}"
         key: "{{ bundle.parameters.tre_id }}-shared-service-certs"
-        tre_resource_id: "{{ bundle.parameters.id }}"
       outputs:
         - name: fqdn
         - name: application_gateway_name
