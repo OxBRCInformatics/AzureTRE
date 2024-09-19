@@ -3,6 +3,9 @@ COPY requirements.txt /.
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 FROM base as test
+
+RUN pip install --no-cache-dir --upgrade pip==24.2
+
 COPY requirements-dev.txt /.
 RUN pip3 install --no-cache-dir -r requirements-dev.txt
 COPY . /api
