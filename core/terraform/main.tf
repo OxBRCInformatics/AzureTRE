@@ -3,23 +3,23 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "=3.108.0"
+      version = "=3.108.0"  # Exact version
     }
     random = {
       source  = "hashicorp/random"
-      version = "~> 3.6"
+      version = "=3.6.2"    # Exact version if you want to lock it
     }
     local = {
       source  = "hashicorp/local"
-      version = "~> 2.5"
+      version = "=2.5.1"    # Exact version if you want to lock it
     }
     http = {
       source  = "hashicorp/http"
-      version = "~> 3.4"
+      version = "=3.4.3"    # Exact version if you want to lock it
     }
     azapi = {
-      source  = "Azure/azapi"
-      version = "~> 1.13.0"
+      source  = "azure/azapi"  # Correct case
+      version = "=1.13.1"      # Exact version to avoid older versions
     }
   }
 
