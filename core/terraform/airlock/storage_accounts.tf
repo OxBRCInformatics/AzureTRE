@@ -39,7 +39,9 @@ resource "azurerm_storage_account" "sa_import_external" {
   }
 
   tags = merge(var.tre_core_tags, {
-    description = "airlock;import;external"
+    description = "airlock;export;approved",
+    backup      = "true",
+    archive     = "false"
   })
 
   lifecycle { ignore_changes = [infrastructure_encryption_enabled, tags] }
