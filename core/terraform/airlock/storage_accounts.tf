@@ -112,7 +112,7 @@ resource "azurerm_storage_account" "sa_export_approved" {
     archive     = "false"
   })
 
-  lifecycle { ignore_changes = [infrastructure_encryption_enabled, tags] }
+  lifecycle { ignore_changes = [infrastructure_encryption_enabled] }
 }
 
 resource "azurerm_private_endpoint" "stg_export_approved_pe" {
