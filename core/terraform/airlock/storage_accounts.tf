@@ -107,10 +107,12 @@ resource "azurerm_storage_account" "sa_export_approved" {
   }
 
   tags = merge(var.tre_core_tags, {
-    description = "airlock;export;approved"
+    description = "airlock;export;approved",
+    backup      = "true",
+    archive     = "false"
   })
 
-  lifecycle { ignore_changes = [infrastructure_encryption_enabled, tags] }
+  lifecycle { ignore_changes = [infrastructure_encryption_enabled] }
 }
 
 resource "azurerm_private_endpoint" "stg_export_approved_pe" {
