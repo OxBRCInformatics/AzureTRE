@@ -238,7 +238,7 @@ resource "azapi_resource_action" "enable_defender_for_storage_export" {
   resource_id = "${azurerm_storage_account.sa_export_inprogress.id}/providers/Microsoft.Security/defenderForStorageSettings/current"
   method      = "PUT"
 
-  body = jsonencode({
+  body = {
     properties = {
       isEnabled = true
       malwareScanning = {
@@ -253,7 +253,7 @@ resource "azapi_resource_action" "enable_defender_for_storage_export" {
       }
       overrideSubscriptionLevelSettings = true
     }
-  })
+  }
 }
 
 # 'Rejected' location for export

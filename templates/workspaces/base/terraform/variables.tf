@@ -108,6 +108,9 @@ variable "client_secret" {
   default     = ""
   description = "The client secret of the workspace in the identity provider, this is passed in so that we may return it as an output."
 }
+variable "ui_client_id" {
+  type = string
+}
 variable "sp_id" {
   type        = string
   default     = ""
@@ -143,6 +146,17 @@ variable "storage_account_redundancy" {
   type        = string
   default     = "GRS"
   description = "The redundancy option for the storage account in the workspace: GRS (Geo-Redundant Storage) or ZRS (Zone-Redundant Storage)."
+}
+variable "auto_grant_workspace_consent" {
+  type        = bool
+  default     = false
+  description = "A boolean indicating if the admin consent should be auto granted to the workspace"
+}
+
+variable "enable_dns_policy" {
+  type        = bool
+  description = "Whether, or not, to add a DNS security policy with an allow-list. This is a preview feature that can be enabled to prevent data exfiltration via DNS."
+  default     = false
 }
 
 variable "enable_airlock_malware_scanning" {
