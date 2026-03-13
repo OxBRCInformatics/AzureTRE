@@ -11,7 +11,7 @@ def mock_get_porter_parameter_keys():
 
 
 @pytest.mark.parametrize("config, expected_command", [
-    ({"azure_environment": "AzureCloud", "vmss_msi_id": "msi_id"}, "az cloud set --name AzureCloud >/dev/null  && az login --identity -u msi_id >/dev/null "),
+    ({"azure_environment": "AzureCloud", "vmss_msi_id": "msi_id"}, "az cloud set --name AzureCloud >/dev/null  && az login --identity --client-id msi_id >/dev/null "),
     ({"azure_environment": "AzureCloud", "arm_client_id": "client_id", "arm_client_secret": "client_secret", "arm_tenant_id": "tenant_id"}, "az cloud set --name AzureCloud >/dev/null  && az login --service-principal --username client_id --password client_secret --tenant tenant_id >/dev/null")
 ])
 def test_azure_login_command(config, expected_command):
