@@ -108,7 +108,7 @@ install:
         - login
       flags:
         identity:
-        username: ${ bundle.credentials.azure_client_id }
+        client-id: ${ bundle.credentials.azure_client_id }
   - terraform:
       description: "Deploy OHDSI workspace service"
       vars:
@@ -154,7 +154,7 @@ upgrade:
         - login
       flags:
         identity:
-        username: ${ bundle.credentials.azure_client_id }
+        client-id: ${ bundle.credentials.azure_client_id }
   - terraform:
       description: "Upgrade shared service"
       vars:
