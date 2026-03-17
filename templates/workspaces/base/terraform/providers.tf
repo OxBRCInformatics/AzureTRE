@@ -44,5 +44,7 @@ provider "azuread" {
   tenant_id     = var.auth_tenant_id
 }
 
-provider "azapi" {
+azapi = {
+  source  = "Azure/azapi"
+  version = "= 2.8.0"
 }
