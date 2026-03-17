@@ -5,7 +5,7 @@ resource "azurerm_key_vault" "kv" {
   location                  = azurerm_resource_group.ws.location
   resource_group_name       = azurerm_resource_group.ws.name
   sku_name                  = "standard"
-  enable_rbac_authorization = true
+  rbac_authorization_enabled = true
   purge_protection_enabled  = true
   tenant_id                 = data.azurerm_client_config.current.tenant_id
   tags                      = local.tre_workspace_tags
@@ -56,7 +56,7 @@ resource "azurerm_monitor_diagnostic_setting" "kv" {
     }
   }
 
-  metric {
+  enabled_metric {
     category = "AllMetrics"
     enabled  = true
   }
