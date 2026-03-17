@@ -58,7 +58,6 @@ resource "azurerm_monitor_diagnostic_setting" "kv" {
 
   enabled_metric {
     category = "AllMetrics"
-    enabled  = true
   }
 }
 
