@@ -119,6 +119,14 @@ install:
         client-id: ${ bundle.credentials.azure_client_id }
 
   - az:
+      description: "Select the Azure subscription"
+      arguments:
+        - account
+        - set
+      flags:
+        subscription: ${ bundle.credentials.azure_subscription_id }
+
+  - az:
       arguments:
         - resource
         - update
@@ -188,6 +196,14 @@ upgrade:
       flags:
         identity:
         client-id: ${ bundle.credentials.azure_client_id }
+
+  - az:
+      description: "Select the Azure subscription"
+      arguments:
+        - account
+        - set
+      flags:
+        subscription: ${ bundle.credentials.azure_subscription_id }
 
   - az:
       arguments:

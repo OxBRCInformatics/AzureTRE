@@ -18,6 +18,8 @@ terraform {
 }
 
 provider "azurerm" {
+  subscription_id = coalesce(var.workspace_subscription_id, data.azurerm_client_config.current.subscription_id)
+
   features {
     key_vault {
       purge_soft_delete_on_destroy               = false
@@ -31,6 +33,12 @@ provider "azurerm" {
     }
   }
   storage_use_azuread = true
+}
+
+provider "azurerm" {
+  alias = "core"
+  features {
+  }
 }
 
 module "terraform_azurerm_environment_configuration" {
