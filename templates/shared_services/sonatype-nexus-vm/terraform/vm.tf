@@ -242,9 +242,6 @@ data "cloudinit_config" "nexus_config" {
 locals {
   nexus_bootstrapping_content = templatefile("${path.module}/cloud-config.yaml", {
     NEXUS_ADMIN_PASSWORD = random_password.nexus_admin_password.result
-    MSI_ID               = azurerm_user_assigned_identity.nexus_msi.client_id
-    ACR_NAME             = data.azurerm_container_registry.mgmt_acr.name
-    NEXUS_IMAGE_TAG      = var.nexus_image_tag
   })
 
   configure_nexus_ssl_content = templatefile("${path.module}/../scripts/configure_nexus_ssl.sh", {

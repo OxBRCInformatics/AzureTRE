@@ -102,6 +102,7 @@ mixins:
   - exec
   - terraform:
       clientVersion: 1.14.3
+      clientVersion: 1.14.3
 
 install:
   - terraform:
